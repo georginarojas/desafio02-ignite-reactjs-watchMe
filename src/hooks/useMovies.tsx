@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { createContext, ReactNode, useCallback, useContext, useEffect, useState } from "react";
 import { api } from "../services/api";
 
 interface GenreResponseProps {
@@ -64,9 +64,12 @@ export function MoviesProvider({ children }: MoviesProviderProps) {
       });
   }, [selectedGenreId]);
 
-  function selectGenre(id: number) {
-    setSelectedGenreId(id);
-  }
+  // function selectGenre(id: number) {
+  //   setSelectedGenreId(id);
+  // }
+  const selectGenre = useCallback((id: number) => {
+      setSelectedGenreId(id);
+  }, [])
 
   return (
     <MoviesContext.Provider

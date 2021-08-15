@@ -1,13 +1,12 @@
+import React from "react";
+import { Header } from "./Header";
 import { useMovies } from "../hooks/useMovies";
 import { MovieCard } from "./MovieCard";
 
 import "../styles/sidebar.scss";
-import React from "react";
-import { Header } from "./Header";
 
 export function Content() {
   const { selectedGenre, movies } = useMovies();
-
   return (
     <div className="container">
       <Header title={selectedGenre.title} />
